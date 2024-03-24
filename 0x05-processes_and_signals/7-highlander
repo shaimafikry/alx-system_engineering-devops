@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Bash script TRAPS A SIGTERM AND SEND A MESAGE.
+trap 'echo "I am invincible!!!";' SIGTERM;while true; do echo "To infinity and beyond"; sleep 2; done

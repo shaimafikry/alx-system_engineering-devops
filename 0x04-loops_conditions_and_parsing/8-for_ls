@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#prints "message" 10 times
+for File in *
+do
+	echo "${File#*-}";
+done

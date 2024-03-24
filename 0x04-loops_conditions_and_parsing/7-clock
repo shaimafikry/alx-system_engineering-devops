@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#prints "message" 10 times
+i="0"
+m="1"
+echo "Hour: $i";
+while [ $i -lt 12 ]; do
+	while [ $m -le 59 ];do
+		echo $m;
+		((m++))
+	done
+	((i++))
+	echo "Hour: $i";
+	m=1
+done
+while [ $m -le 59 ];do
+	echo $m;
+	((m++))
+done
