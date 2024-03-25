@@ -5,8 +5,8 @@
 
 file {'edit_config_file':
   ensure  => 'present'
-  path    => '/usr/vagrant/.ssh/config'
+  path    => '/home/vagrant/.ssh/config'
   content => 'Host *
-IdentityFile "/usr/vagrant/.ssh/school"
+IdentityFile "/home/vagrant/.ssh/school"
 PasswordAuthentication no',
 }
