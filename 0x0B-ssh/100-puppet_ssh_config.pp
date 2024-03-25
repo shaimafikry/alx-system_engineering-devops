@@ -4,9 +4,9 @@
 # so that you can connect to a server without typing a password.
 
 file {'edit_config_file':
-  ensure => 'present'
-  path => '/usr/root/.ssh/config'
+  ensure  => 'present'
+  path    => '/usr/root/.ssh/config'
   content => 'Host *
-IdentityFile "~/.ssh/school"
+IdentityFile "/usr/root/.ssh/school"
 PasswordAuthentication no',
 }
