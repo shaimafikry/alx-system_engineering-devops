@@ -2,7 +2,7 @@
 # scrpt creats a file and handle signals
 echo $$ > /var/run/myscript.pid
 trap 'echo "Y U no love me?!"' SIGINT
-trap 'rm /var/run/myscript.pid; echo "I hate the kill command" ; exit 0' SIGQUIT SIGTERM
+trap 'rm /var/run/myscript.pid; echo "I hate the kill command"; exit 0' SIGQUIT SIGTERM
 while true; do
 echo "To infinity and beyond"
 done
