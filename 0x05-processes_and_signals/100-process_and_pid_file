@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+touch /var/run/myscript.pid | echo gitpid() > myscript.pid
+while true; do
+echo "To infinity and beyond"
+trap 'echo "I hate the kill command"' SIGTERM SIGQUIT
+trap 'echo "Y U no love me?!"' SIGINT
+done
