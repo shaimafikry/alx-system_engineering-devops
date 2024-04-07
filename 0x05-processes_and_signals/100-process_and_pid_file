@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# scrpt creats a file and handle signals
 touch /var/run/myscript.pid | echo gitpid() > myscript.pid
 while true; do
 echo "To infinity and beyond"
