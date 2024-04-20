@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 # connect to ssh
+# -i to get the key from the file and connect the server
+# it isnt like (cat file)
 ssh -i ~/.ssh/school ubuntu@8.8.8.8

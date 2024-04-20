@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # create RSA key pair, putting the filename to be saved 
 # and the pssphrase in one command
+# -f for yhe file and -N fpr the pass
 ssh-keygen -b 4096 -N betty -f school
