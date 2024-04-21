@@ -6,5 +6,5 @@
 file { 'edit_config_file':
  ensure  => 'present',
  path    => '/etc/ssh/ssh_config',
- content => "Host *\n\tIdentityFile \"~/.ssh/school\"\n\tPasswordAuthentication no",
+ content => "Host *\n\tIdentityFile ~/.ssh/school\n\tPasswordAuthentication no\n",
 }
