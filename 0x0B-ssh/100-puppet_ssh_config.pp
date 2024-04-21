@@ -4,8 +4,8 @@
 # so that you can connect to a server without typing a password.
 # (edit_config_file) is the name of process
 file {'edit_config_file':
-  ensure  => 'present'
-  path    => '/etc/ssh/ssh_config'
+  ensure  => 'present',
+  path    => '/etc/ssh/ssh_config',
   content => 'Host *
 IdentityFile "~/.ssh/school"
 PasswordAuthentication no',
