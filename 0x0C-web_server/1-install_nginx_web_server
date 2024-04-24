@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Update package lists to get the lates update when installing
 sudo apt-get update
 
