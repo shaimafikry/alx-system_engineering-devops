@@ -4,8 +4,8 @@
 sudo mkdir /redirect_me
 
 #replacing data in default file in sities_available
-replace_string="server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nlocation / {try_files $uri $uri/ =404;}\nlocation /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;}}"
-old_string="server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nlocation / {try_files $uri $uri/ =404;}}"
+replace_string="server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nlocation / {}\nlocation /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;}}"
+old_string="server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nlocation / { }}"
 
 #using sed
 sed -i "s/$old_string/$replace_string" /etc/nginx/sites-available/default
