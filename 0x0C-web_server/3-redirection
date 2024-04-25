@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # applying redirect
 # first make a new path in the server root
-# sudo mkdir /redirect_me
+sudo mkdir /redirect_me
 
 #replacing data in default file in sities_available
 replace_string="server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nlocation / {}\nlocation /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;}}"
