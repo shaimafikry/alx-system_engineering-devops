@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # applying redirect
 # first make a new path in the server root
 sudo mkdir /redirect_me
