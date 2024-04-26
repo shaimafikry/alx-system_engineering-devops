@@ -2,7 +2,7 @@
 # applying redirect
 # first make a new path in the server root
 
-sudo  echo "Ceci n'est pas une page"> /var/www/html/error.html
+sudo  tee "Ceci n'est pas une page" | /var/www/html/error.html
 
 #replacing data in default file in sities_available
 replace_string="server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nerror_page 404 /error.html;\nlocation /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;}}"
