@@ -5,7 +5,7 @@
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/error.html
 
 #replacing data in default file in sities_available
-replace_string="server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nerror_page 404 /error.html;\nlocation / {}"
+replace_string="server {\nlisten 80 default_server;\nlisten [::]:80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html error.html;\nserver_name _;\nerror_page 404 /error.html;\nlocation / {}"
 
 
 #using sed
