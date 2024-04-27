@@ -4,13 +4,16 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
+printf %s "server {
+listen 80 default_server;
+root /var/www/html;
+index index.html index.htm;
+location / {
+root /var/www/html;
+}
+location /redirect_me {
+return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+}
+}" > /etc/nginx/sites_available/default
 
-#replacing data in default file in sities_available
-replace_string="server {\nlisten 80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nlocation / {}\nlocation /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;}}"
-
-echo "Hello World!" | sudo tee /var/www/html/index.html
-
-echo "$replace_string" | sudo tee /etc/nginx/sites-available/default
-
-#refreshing server
-sudo service nginx restart
+sudo service restart
