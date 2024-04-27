@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # applying redirect
 
-sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
 
 printf %s "server {
 listen 80 default_server;
@@ -14,17 +14,6 @@ return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 location / {
 root /var/www/html;
 }" > /etc/nginx/sites_available/default
-
-# first make a new path in the server root
-apt update
-apt install nginx
-sudo service ngnix start
-#replacing data in default file in sities_available
-replace_string="server {\nlisten 80 default_server;\nroot /var/www/html;\nindex index.html index.htm index.nginx-debian.html;\nserver_name _;\nlocation /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;}}"
-
-
-#using sed
-sudo tee "$replace_string" | /etc/nginx/sites-available/default
 
 #refreshing server
 sudo service nginx restart
