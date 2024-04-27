@@ -4,14 +4,14 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-printf %s "server {
+echo "server {
         listen 80 default_server;
         listen [::]:80 default_server;
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
         server_name _;
         location / {
-                try_files $uri $uri/ =404;
+                try_files / =404;
         }
         # applyin redirect
         location /redirect_me {
