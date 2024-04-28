@@ -20,12 +20,12 @@ file { '/etc/nginx/sites-available/default':
   content => 'server {
 				listen 80 default_server;
 				server_name _;
+				index index.html;
 				location /redirect_me {
 					return 301;
 				}
 				location / {
 					root /var/www/html;
-					index index.html;
 				}
 			  }',
   require => Package ['nginx']
