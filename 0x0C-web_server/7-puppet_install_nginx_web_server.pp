@@ -33,6 +33,6 @@ file { 'port_congfig':
 }
 
 exec { 'nginx_restart':
-  command => '/usr/sbin/nginx restart',
+  command => 'sudo service nginx restart',
   require => File['port_config'],
 }
