@@ -5,7 +5,7 @@ exec {'update':
 
 Package {'nginx':
   ensure  => 'installed',
-  provider=> 'apt',
+  provider=> 'pip3',
   require => Exec ['update'],
 }
 
@@ -18,16 +18,16 @@ file { '/var/www/html/index.html':
 file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
   content => 'server {
-                listen 80 default_server;
-                server_name _;
+				listen 80 default_server;
+				server_name _;
 				location /redirect_me {
 					return 301;
 				}
-                location / {
-                    root /var/www/html;
-                    index index.html;
-                }
-              }',
+				location / {
+					root /var/www/html;
+					index index.html;
+				}
+			  }',
   require => Package ['nginx']
 }
 
