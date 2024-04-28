@@ -15,9 +15,8 @@ file { '/var/www/html/index.html':
   require => Package ['nginx']
 }
 
-file { 'port_congfig':
+file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
-  path    => '/etc/nginx/sites-available/default',
   content => 'server {
                 listen 80 default_server;
                 server_name _;
