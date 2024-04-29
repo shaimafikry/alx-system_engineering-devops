@@ -6,7 +6,7 @@ package {'nginx':
 file { '/var/www/html/index.html':
   ensure  => 'present',
   content => "Hello World!\n",
-  require => Package ['nginx']
+  require => Package['nginx']
 }
 
 file { '/etc/nginx/sites-available/default':
@@ -25,7 +25,7 @@ file { '/etc/nginx/sites-available/default':
              root /var/www/html;
         }
         }',
-  require => Package ['nginx']
+  require => Package['nginx']
 }
 # to applaya restart
 service { 'nginx':
