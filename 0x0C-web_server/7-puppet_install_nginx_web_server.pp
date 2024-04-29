@@ -1,13 +1,7 @@
-# updte app list
-exec {'update':
-  command => 'apt-get -y update',
-  path    => '/usr/bin',
-}
+# use puppet to configure the server
 
 Package {'nginx':
   ensure  => 'installed',
-  provider=> 'apt',
-  require => Exec ['update'],
 }
 
 file { '/var/www/html/index.html':
