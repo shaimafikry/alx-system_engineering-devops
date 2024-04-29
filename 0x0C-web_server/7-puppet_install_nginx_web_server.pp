@@ -1,6 +1,7 @@
 # updte app list
 exec {'update':
   command => 'apt-get -y update',
+  path    => '/usr/bin',
 }
 
 Package {'nginx':
@@ -33,8 +34,8 @@ file { '/etc/nginx/sites-available/default':
         }',
   require => Package ['nginx']
 }
-
-exec { 'nginx_restart':
-  command => 'service nginx restart',
-  require => File['/etc/nginx/sites-available/default'],
+# to applaya restart
+service { 'nginx':
+   ensure => running,
+   enable => true,
 }
