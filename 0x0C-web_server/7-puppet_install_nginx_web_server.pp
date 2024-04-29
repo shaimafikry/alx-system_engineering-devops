@@ -29,7 +29,7 @@ file { '/etc/nginx/sites-available/default':
                 return 301;
         }
         location / {
-             root /var/www/html;
+                return 200 /index.html;
         }
         }',
   require => Package ['nginx']
