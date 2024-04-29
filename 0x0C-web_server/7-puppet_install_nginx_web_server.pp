@@ -1,16 +1,16 @@
 # use puppet to configure the server
-Package {'nginx':
+package {'nginx':
   ensure  => 'installed',
 }
 
 file { '/var/www/html/index.html':
-  ensure  => file,
+  ensure  => 'present',
   content => "Hello World!\n",
   require => Package ['nginx']
 }
 
 file { '/etc/nginx/sites-available/default':
-  ensure  => file,
+  ensure  => 'present',
   content => 'server {
         listen 80 default_server;
         listen [::]:80 default_server;
