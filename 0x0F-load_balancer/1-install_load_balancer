@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 # install load balancer
 # refresh the package list
-sudo apt-get update
+sudo apt-get -y update
 
 # install the haproxy
-sudo apt install haproxy
+sudo apt install -y haproxy
 # to check init script
-sudo service haproxy status
+sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
 # copy tha main file
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
-
 # configure it to the servers
 echo "
 frontend myfrontend
