@@ -13,7 +13,7 @@ file { '/etc/nginx/sites-available/default':
         server_name _;
         add_header X-Served-By $(hostname);
         location / {
-                try_files / =404;
+                try_files /$(uri) $(uri) =404;
         }
 }",
   require => Package['nginx']
