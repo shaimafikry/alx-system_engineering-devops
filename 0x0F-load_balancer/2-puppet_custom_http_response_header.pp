@@ -1,5 +1,4 @@
 # custom http request header
-# use puppet to configure the server
 package {'nginx':
   ensure  => 'installed',
 }
@@ -18,19 +17,19 @@ file { '/etc/nginx/sites-available/default':
         root /var/www/html;
         index index.html index.htm index.nginx-debian.html;
         server_name _;
+        location / {
+                try_files / =404;
+                add_header X-Served-By $(hostname);
+        }
         # applyin redirect
         location /redirect_me {
                 return 301;
         }
-        location / {
-             root /var/www/html;
-             add_header X-Served-By $(hostname);
-        }
-        }',
+}',
   require => Package['nginx']
 }
 # to applaya restart
 service { 'nginx':
-   ensure => running,
-   enable => true,
+  ensure => running,
+  enable => true,
 }
