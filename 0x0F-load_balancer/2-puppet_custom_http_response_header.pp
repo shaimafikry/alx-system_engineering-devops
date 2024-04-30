@@ -21,5 +21,4 @@ file { '/etc/nginx/sites-available/default':
 # to applaya restart
 service { 'nginx':
   ensure => running,
-  enable => true,
-}
+  enable => true,}
