@@ -3,10 +3,19 @@ package {'nginx':
   ensure  => 'installed',
 }
 
-file_line { '/etc/nginx/sites-available/default':
+file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
-  after   => 'listen 80 default_server;',
-  line    => 'add_header X-Served-By $(hostname);'
+  content => "server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        add_header X-Served-By ${hostname};
+        location / {
+                try_files / =404;
+        }
+}",
   require => Package['nginx']
 }
 # to applaya restart
