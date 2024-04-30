@@ -4,19 +4,18 @@
 sudo apt-get -y update
 
 # install the haproxy
-sudo apt install -y haproxy
+sudo apt-get install -y haproxy
 # to check init script
-sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+# sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
 # copy tha main file
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
 # configure it to the servers
 echo "
 frontend myfrontend
-  mode http
   bind *:80
+  mode http
   default_backend web_servers
 backend web_servers
-  mode http
   balance roundrobin
   server 486992-web-01  18.207.1.174:80 check
   server 486992-web-02 54.226.26.233:80 check"
