@@ -3,15 +3,9 @@ package {'nginx':
   ensure  => 'installed',
 }
 
-file { '/var/www/html/index.html':
-  ensure  => 'present',
-  content => "Hello World!\n",
-  require => Package['nginx']
-}
-
 file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
-  content => 'server {
+  content => "server {
         listen 80 default_server;
         listen [::]:80 default_server;
         root /var/www/html;
@@ -21,11 +15,7 @@ file { '/etc/nginx/sites-available/default':
                 try_files / =404;
                 add_header X-Served-By $(hostname);
         }
-        # applyin redirect
-        location /redirect_me {
-                return 301;
-        }
-}',
+}",
   require => Package['nginx']
 }
 # to applaya restart

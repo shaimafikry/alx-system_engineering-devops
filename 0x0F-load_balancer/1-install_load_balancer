@@ -7,8 +7,10 @@ sudo apt-get update
 sudo apt install haproxy
 # to check init script
 sudo service haproxy status
+# copy tha main file
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.orig
 
-#configure it to the servers
+# configure it to the servers
 echo "
 frontend myfrontend
   mode http
@@ -17,8 +19,9 @@ frontend myfrontend
 backend web_servers
   mode http
   balance roundrobin
-  server 486992-web-01  18.207.1.174
-  server 486992-web-02 54.226.26.233" | sudo tee /etc/haproxy/haproxy.cfg
+  server 486992-web-01  18.207.1.174:80 check
+  server 486992-web-02 54.226.26.233:80 check"
+  | sudo tee /etc/haproxy/haproxy.cfg
 
 # restart
 sudo service haproxy restart
