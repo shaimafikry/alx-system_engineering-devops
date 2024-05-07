@@ -1,19 +1,4 @@
 #!/usr/bin/env bash
-# fixing port 80
-
-sudo apt-get -y update
-sudo apt-get -y install nginx
-echo "server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-        server_name _;
-        location / {
-             root /var/www/html;
-        }
-}
-" | sudo tee /etc/nginx/sites-available/default
-
-#refreshing server
-sudo service nginx restart
+# debugging Nginx web server
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+service nginx restart
