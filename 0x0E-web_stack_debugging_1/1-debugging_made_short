@@ -2,4 +2,4 @@
 # same as task 1 but then u kill the process
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 service nginx restart
-nginx -s stop
+kill "$(pgrep 'nginx' | head -1)"
