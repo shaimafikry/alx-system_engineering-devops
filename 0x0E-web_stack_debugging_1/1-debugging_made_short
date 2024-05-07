@@ -1,1 +1,12 @@
 #!/usr/bin/env bash
+# Update package lists to get the lates update when install
+apt-get update
+
+# Install Nginx, -y to make a default yes for all questions
+apt-get install -y nginx
+
+# Ensure Nginx is listening on port 80
+sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+
+# Restart Nginx without using systemctl
+service nginx restart
