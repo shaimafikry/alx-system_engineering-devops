@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 # same as task 1 but then u kill the process
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-service nginx restart
 pkill -f "nginx"
