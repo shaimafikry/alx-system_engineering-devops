@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+dig "$1" "$2"

@@ -5,6 +5,9 @@ package {'nginx':
 
 file { '/etc/nginx/sites-available/default':
   ensure  => 'present',
+  mode    => '0644', # Read and write for the owner, and read for the group and others
+  owner   => 'root',
+  group   => 'root',
   content => "server {
         listen 80 default_server;
         root /var/www/html;
