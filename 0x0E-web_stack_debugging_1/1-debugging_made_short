@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Update package lists to get the lates update when install
+# make it less
 apt-get update
 apt-get install -y nginx
 sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
