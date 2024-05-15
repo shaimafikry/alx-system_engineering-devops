@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# using ufw to redirect from 8080 to 80
+sudo ufw allow 8080/tcp
+sudo ufw allow 80/tcp
+
+sudo ufw allow from 8080 to any port 80
+sudo ufw restart
