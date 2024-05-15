@@ -13,7 +13,7 @@ sudo uwf allow from [doamin ip]
 sudo uwf allow [port or sevice name or port ranges 00:00/tcp]
 
 # how to redirect from port1 to port2
-1- first we make the ports allowed on the ufw
+1- first make the ports allowed on the ufw
 
 	sudo ufw allow (port1)
 
@@ -36,7 +36,7 @@ sudo uwf allow [port or sevice name or port ranges 00:00/tcp]
 	
 
 
-6- we write " sudo systemctl restart ufw"
+6- write " sudo systemctl restart ufw"
 
 
 done 
