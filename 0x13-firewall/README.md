@@ -31,7 +31,7 @@ sudo uwf allow [port or sevice name or port ranges 00:00/tcp]
 	
 	*nat
 	:PREROUTING ACCEPT [0:0]
-	-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+	-A PREROUTING -p tcp --dport port1 -j REDIRECT --to-port port2
 	COMMIT
 	
 
