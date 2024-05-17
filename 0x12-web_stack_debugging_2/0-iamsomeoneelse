@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # change user
 su -c "$1"
+whoami
