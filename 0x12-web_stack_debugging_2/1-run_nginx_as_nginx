@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
-
+# change as a nginx user
 sudo -u nginx sed -i 's/listen 8080 default_server;/listen 80;/g' /etc/nginx/sites-available/default
-
-# Create a simple "Hello World!" page
-# tee do both show output to the terminal, write on file
-
-
 # Restart Nginx without using systemctl
 sudo -u nginx service nginx restart
