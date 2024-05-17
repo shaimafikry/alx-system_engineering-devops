@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # change as a nginx user
-sudo -u nginx sed -i 's/listen 8080 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+su nginx "sed -i 's/listen 80 default_server;/listen 8080;/g' /etc/nginx/sites-available/default"
 # Restart Nginx without using systemctl
-sudo -u nginx service nginx restart
+su nginx 'service nginx restart'
