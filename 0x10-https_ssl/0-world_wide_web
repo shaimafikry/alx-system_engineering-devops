@@ -12,7 +12,9 @@ if [[ $# -eq 1 ]]; then
 	done <<< "$(dig +noall +answer "$1")"
 # search for specific sub domain
 else
-	result=$(dig +noall +answer "$2"| awk '{if ($5) print $5}')
+	# subdomain holds forex www.domain.com
+	subdomain="$2.$1"
+	result=$(dig +noall +answer "$subdomain"| awk '{if ($5) print $5}')
 	echo "The subdomain $2 is a A record and points to $result"
 fi;
 }
