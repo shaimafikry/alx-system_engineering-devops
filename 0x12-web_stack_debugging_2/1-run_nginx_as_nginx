@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # change as a nginx user
-su - nginx
 sed -i "s/user www-data;/user nginx;/" /etc/nginx/nginx.conf
 sed -i 's/listen 80 default_server;/listen 8080;/g' /etc/nginx/sites-available/default
-# Restart Nginx without using systemctl
-service nginx restart
+sudo chmod 644 /etc/nginx/nginx.conf
+sudo -u nginx service nginx restart
