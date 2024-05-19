@@ -3,9 +3,9 @@
 dig_input(){
 # if second argument donest exist, search for all records
 if [[ $# -eq 1 ]]; then
-	# num of lines that hold records
-	subdomains=("www", "lb-01", "web-01", "web-02")
-	for word in ${subdomains[@]}; do
+	# subdomains hard codded
+	subdomains=("www" "lb-01" "web-01" "web-02")
+	for word in "${subdomains[@]}"; do
 		sub_dom="$word.$1"
 		result=$(dig +noall +answer "$sub_dom" | awk '{if ($5) print $5}')
 		echo "The subdomain $word is a A record and points to $result"
