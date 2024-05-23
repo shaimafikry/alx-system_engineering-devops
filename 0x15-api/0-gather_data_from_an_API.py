@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-training on using api
+ training on using api
 """
 
 
