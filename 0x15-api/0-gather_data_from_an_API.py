@@ -2,13 +2,11 @@
 """
 Libraries imported in your Python files must be organized in alphabetical order
 """
-
-
-if __name__ == "__main__":
 import sys
 import requests
 
 
+if __name__ == "__main__":
 if len(sys.argv) > 1:
     id = sys.argv[1]
     u_tasks = []
