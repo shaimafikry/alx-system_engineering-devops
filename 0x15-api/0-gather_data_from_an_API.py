@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Training on using api
+"""
+Training on using api from the virtual website typicode jsonllaceholder
 """
 
 
@@ -7,7 +8,6 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    """begin the test"""
     if len(sys.argv) > 1:
         id = sys.argv[1]
         u_tasks = []
