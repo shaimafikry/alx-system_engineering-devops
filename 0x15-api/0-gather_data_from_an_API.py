@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-Libraries imported in your Python files must be organized in alphabetical order
+"""Libraries imported in your Python files must be organized in alphabetical order
 """
 import sys
 import requests
