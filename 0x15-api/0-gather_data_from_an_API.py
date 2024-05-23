@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
- training on using api
+"""Training on using api
 """
 
 
@@ -8,6 +7,7 @@ import requests
 import sys
 
 if __name__ == "__main__":
+    """begin the test"""
     if len(sys.argv) > 1:
         id = sys.argv[1]
         u_tasks = []
