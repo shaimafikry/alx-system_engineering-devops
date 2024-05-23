@@ -34,5 +34,3 @@ if len(sys.argv) > 1:
         print("\t {}".format(task_name))
 else:
     print("Usage: missing id")
-        
-    
