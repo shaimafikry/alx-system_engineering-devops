@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Training on using api from the virtual website typicode jsonllaceholder
+Training on using api from the virtual website typicode jsonplaceholder
 """
 
 
