@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-# Libraries imported in your Python files must be organized in alphabetical order
+""" Libraries imported in your Python files must be organized in alphabetical order """
+
+
 if __name__ == "__main__":
 import sys
 import requests
+
 
 if len(sys.argv) > 1:
     id = sys.argv[1]
