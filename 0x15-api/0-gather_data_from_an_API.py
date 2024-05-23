@@ -1,10 +1,11 @@
 #!/usr/bin/python3
+
 '''
-Libraries imported in your Python files must be organized in alphabetical order
+training on using api
 '''
+
 import requests
 import sys
-
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
