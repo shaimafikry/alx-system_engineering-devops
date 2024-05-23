@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-'''
+"""
 training on using api
-'''
+"""
+
 
 import requests
 import sys
