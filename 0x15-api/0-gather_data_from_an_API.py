@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 '''
 training on using api
 '''
