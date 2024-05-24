@@ -3,10 +3,9 @@
 Training on using api from the virtual website typicode jsonplaceholder
 """
 
-
-import requests
-import sys
 import json
+import requests
+
 if __name__ == "__main__":
     filename = "todo_all_employees.json"
     dict_all = {}
