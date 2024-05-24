@@ -30,7 +30,7 @@ if __name__ == "__main__":
         fields = ["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"]
         with open (filename,"w", newline='') as csvfile:
             data = csv.DictWriter(csvfile, fieldnames=fields)
-            # data.header()
-            data.rows(u_tasks)
+            data.writeheader()
+            data.writerows(u_tasks)
     else:
         print("Usage: missing id")  
