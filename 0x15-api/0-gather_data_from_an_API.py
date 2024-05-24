@@ -25,15 +25,14 @@ if __name__ == "__main__":
                 u_tasks.append(i)
         # print (tasks)
         # print (u_tasks)
-        t_u_tasks = len(u_tasks)
+        t_u_tsks = len(u_tasks)
         for i in u_tasks:
             if i["completed"] is True:
                 comp_tasks.append(i)
         # print (comp_tasks)
-        t_comp_tasks = len(comp_tasks)
+        t_comp_tsks = len(comp_tasks)
         # print (total_comp_tasks)
-        print(f"Employee {name} is done with
-              tasks({t_comp_tasks}/{t_u_tasks}): ")
+        print(f"Employee {name} is done with tasks({t_comp_tsks}/{t_u_tsks}):")
         for i in comp_tasks:
             task_name = i["title"]
             print("\t {}".format(task_name))
