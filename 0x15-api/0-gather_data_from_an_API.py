@@ -21,18 +21,19 @@ if __name__ == "__main__":
         # print(name)
         tasks = requests.get(f"{rest_api}/todos/").json()
         for i in tasks:
-        if i["userId"] == id:
-            u_tasks.append(i)
+            if i["userId"] == id:
+                u_tasks.append(i)
         # print (tasks)
         # print (u_tasks)
-        total_u_tasks = len(u_tasks)
+        t_u_tasks = len(u_tasks)
         for i in u_tasks:
-            if i["completed"] == True:
+            if i["completed"] is True:
                 comp_tasks.append(i)
         # print (comp_tasks)
-        total_comp_tasks = len(comp_tasks)
+        t_comp_tasks = len(comp_tasks)
         # print (total_comp_tasks)
-        print(f"Employee {name} is done with tasks({total_comp_tasks}/{total_u_tasks}):")
+        print(f"Employee {name} is done with
+              tasks({t_comp_tasks}/{t_u_tasks}): ")
         for i in comp_tasks:
             task_name = i["title"]
             print("\t {}".format(task_name))
