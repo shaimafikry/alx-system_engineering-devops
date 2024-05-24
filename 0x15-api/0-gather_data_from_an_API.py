@@ -9,7 +9,8 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        id = sys.argv[1]
+        id = int(sys.argv[1])
+        # print (id)
         u_tasks = []
         comp_tasks = []
         rest_api = "https://jsonplaceholder.typicode.com"
@@ -20,10 +21,10 @@ if __name__ == "__main__":
         name = data["name"]
         # print(name)
         tasks = requests.get(f"{rest_api}/todos/").json()
+        # print (tasks)
         for i in tasks:
             if i["userId"] == id:
                 u_tasks.append(i)
-        # print (tasks)
         # print (u_tasks)
         t_u_tsks = len(u_tasks)
         for i in u_tasks:
