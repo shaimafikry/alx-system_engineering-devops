@@ -28,7 +28,8 @@ if __name__ == "__main__":
         # print (u_tasks)
         total_u_tasks = len(u_tasks)
         fields = ["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE]
-        with open (filename,"w", ):
-            data = json.loads(u_tasks)
+        with open (filename,"w") as file:
+            data = json.dumps(u_tasks)
+            file.write(data)
     else:
         print("Usage: missing id")   
