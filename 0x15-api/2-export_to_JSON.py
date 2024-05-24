@@ -10,10 +10,8 @@ import sys
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         id = int(sys.argv[1])
-        u_tasks = []
-        comp_tasks = []
         filename = "{}.json".format(id)
-        employ_dict = {}
+        employ_dict = {id: []}
         rest_api = "https://jsonplaceholder.typicode.com"
         # add .json to bring the json format as dict
         # if not used output would be [response 200]
@@ -21,19 +19,18 @@ if __name__ == "__main__":
         # print (data)
         name = data["username"]
         # print(name)
-        tasks = requests.get(f"{rest_api}/todos/").json()
+        # get the user tasks directly
+        tasks = requests.get(f"{rest_api}/users/{id}/todos/").json()
+        # print(tasks)
         for i in tasks:
-            if i["userId"] == id:
-                u_tasks.append(i)
-        # print (u_tasks)
-        for i in u_tasks:
-            i.pop("userId")
-            i.pop("id")
-            i["username"] = name
-        employ_dict[id] = u_tasks
+            title = i.get("title")
+            status = i.get("completed")
+            employ_dict[id].append({
+                                   "task": title,
+                                   "completed": status,
+                                   "username": name})
         # print (employ_dict)
         with open(filename, "w") as file:
-            data = json.dumps(employ_dict)
-            file.write(data)
+            json.dump(employ_dict, file)
     else:
         print("Usage: missing id")
