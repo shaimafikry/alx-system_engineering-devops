@@ -27,7 +27,8 @@ if __name__ == "__main__":
         # print (u_tasks)
         fields = ["userId", "name", "completed", "title"]
         with open(filename, "w", newline='', encoding='utf-8') as csvfile:
-            data = csv.DictWriter(csvfile, fieldnames=fields)
+            data = csv.DictWriter(csvfile, fieldnames=fields,
+                                  quoting=csv.QUOTE_ALL)
             for d in u_tasks:
                 data.writerow({k: v for k, v in d.items() if k in fields})
     else:
