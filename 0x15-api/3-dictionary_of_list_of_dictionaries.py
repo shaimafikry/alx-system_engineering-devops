@@ -8,22 +8,26 @@ import requests
 import sys
 import json
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        id = sys.argv[1]
-        u_tasks = []
-        comp_tasks = []
-        filename = "todo_all_employees.json"
-        rest_api = "https://jsonplaceholder.typicode.com"
-        # add .json to bring the json format as dict
-        # if not used output would be [response 200]
-        data = requests.get(f"{rest_api}/users/{id}").json()
-        # print (data)
-        name = data["name"]
-        # print(name)
-        tasks = requests.get(f"{rest_api}/todos/").json()
-        # print (tasks)
-        with open (filename,"w") as file:
-            data = json.dumps(tasks)
-            file.write(data)
-    else:
-        print("Usage: missing id")     
+    filename = "todo_all_employees.json"
+    dict_all = {}
+    rest_api = "https://jsonplaceholder.typicode.com"
+    # add .json to bring the json format as dict
+    # if not used output would be [response 200]
+    users = requests.get(f"{rest_api}/users").json()
+    # print (data)
+    for i in users:
+        id = i["id"]
+        name = i["username"]
+        dict_all[id] = []
+        # access to tasks
+        tasks = requests.get(f"{rest_api}/users/{id}/todos/").json()
+        for task in tasks:
+            # print (tasks)
+            status = task.get("completed")
+            # print (status)
+            title = task.get("title")
+            # print(title)
+            record = {"username": name, "task": title, "completed": status}
+            dict_all[id].append(record)
+    with open(filename, "w") as file:
+        json.dump(dict_all, file)
