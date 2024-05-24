@@ -9,7 +9,7 @@ import sys
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        id = sys.argv[1]
+        id = int(sys.argv[1])
         u_tasks = []
         comp_tasks = []
         filename = "USER_ID.csv"
@@ -22,15 +22,15 @@ if __name__ == "__main__":
         # print(name)
         tasks = requests.get(f"{rest_api}/todos/").json()
         for i in tasks:
-        if i["userId"] == id:
-            u_tasks.append(i)
+            if i["userId"] == id:
+                u_tasks.append(i)
         # print (tasks)
         # print (u_tasks)
         total_u_tasks = len(u_tasks)
-        fields = ["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE]
+        fields = ["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"]
         with open (filename,"w", newline='') as csvfile:
-            data = csv.DictWriter(csvfile,fieldnames=fields)
-            data.header()
+            data = csv.DictWriter(csvfile, fieldnames=fields)
+            # data.header()
             data.rows(u_tasks)
     else:
         print("Usage: missing id")  
