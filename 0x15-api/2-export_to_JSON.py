@@ -3,10 +3,10 @@
 Training on using api from the virtual website typicode jsonplaceholder
 """
 
-
+import json
 import requests
 import sys
-import json
+
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         id = int(sys.argv[1])
