@@ -23,14 +23,15 @@ if __name__ == "__main__":
         tasks = requests.get(f"{rest_api}/todos/").json()
         for i in tasks:
             if i["userId"] == id:
+                i["name"] = name
                 u_tasks.append(i)
         # print (tasks)
         # print (u_tasks)
         total_u_tasks = len(u_tasks)
-        fields = ["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"]
-        with open (filename,"w", newline='') as csvfile:
+        fields = ["userId", "name", "completed", "title"]
+        with open(filename, "w", newline='') as csvfile:
             data = csv.DictWriter(csvfile, fieldnames=fields)
-            data.writeheader()
-            data.writerows(u_tasks)
+            for d in u_tasks:
+                data.writerow({k: v for k, v in d.items() if k in fields})
     else:
-        print("Usage: missing id")  
+        print("Usage: missing id")
