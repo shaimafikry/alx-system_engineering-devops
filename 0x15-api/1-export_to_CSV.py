@@ -11,7 +11,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         id = int(sys.argv[1])
         u_tasks = []
-        filename = "USER_ID.csv"
+        filename = "{}.csv".format(id)
         rest_api = "https://jsonplaceholder.typicode.com"
         # add .json to bring the json format as dict
         # if not used output would be [response 200]
