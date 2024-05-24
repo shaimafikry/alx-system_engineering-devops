@@ -17,7 +17,7 @@ if __name__ == "__main__":
         # if not used output would be [response 200]
         data = requests.get(f"{rest_api}/users/{id}").json()
         # print (data)
-        name = data["name"]
+        name = data["username"]
         # print(name)
         tasks = requests.get(f"{rest_api}/todos/").json()
         for i in tasks:
