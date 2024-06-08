@@ -1,2 +1,3 @@
 api advnced
-End point
+# End point api
+An endpoint, on the other hand, is a specific URL or URI used to access a particular resource on a server. It represents a single location within an API where the actual exchange of data or actions occurs. Endpoints are like the doors through which you access specific parts of an API. When you send a request to an API, you specify the endpoint to indicate which resource you want to interact with. Each endpoint corresponds to a specific function or resource provided by the API, serving as the entry point for interacting with the API, allowing clients to access functionality or data
