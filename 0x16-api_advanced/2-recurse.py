@@ -1,20 +1,20 @@
 #!/usr/bin/python3
-"""func to get the top 10 comments"""
+"""func to get the top 10 titles"""
 import requests
 
 
-def top_ten(subreddit):
-    """func to get the top 10 comments"""
+def recurse(subreddit, hot_list=[]):
+    """func to get the top 10 titles"""
     # end point url
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    params = {"limit": 10}
     headers = {"User-Agent": "Myscript/1.0 (0-subs)"}
-    data = requests.get(url, headers=headers, params=params)
+    data = requests.get(url, headers=headers)
     if (data.status_code == 200):
         content = data.json()
         comments = content["data"]["children"]
         for comment in comments:
-            print(comment["data"]["title"])
+            hot_list.append(comment["data"]["title"])
+        return (hot_list)
     else:
         return None
 # didnt pass the checker
