@@ -20,6 +20,7 @@ meaning each request from the client to the server must contain all the informat
 	Microservices solve the challenges of monolithic systems by being as modular as possible. In the simplest form, they help build an application as a suite of small services, each running in its own process and being independently deployable.
 
 # What is the CSV format?
+	CSV, or Comma-Separated Values
 
 What is the JSON format
 Pythonic Package and module name style
