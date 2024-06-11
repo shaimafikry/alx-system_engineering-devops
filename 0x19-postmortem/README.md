@@ -12,7 +12,7 @@ from the time Fri, 24 Mar 2017  07:33 to 7:35 GMT An unexpected 500 Internal Ser
 
 07:32: we noticed that curl requests to the server return 500 type error
 
-07:32 - 07:35:  we used to tmux to run curl and strace  simultaneously to diagnose the issue concurrently.
+07:32:  we used to tmux to run curl and strace  simultaneously to diagnose the issue concurrently.
 
 7:33:  we used strace to find the problem and watched the whole process behind the request and searched for the incorrect file extension using grep
 
