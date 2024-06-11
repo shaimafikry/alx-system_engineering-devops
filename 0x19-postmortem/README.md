@@ -1,23 +1,34 @@
-Requirements:
+<h1>Based on 0x17. Web stack debugging #3</h1>
 
-Issue Summary (that is often what executives will read) must contain:
-duration of the outage with start and end times (including timezone)
-what was the impact (what service was down/slow? What were user experiencing? How many % of the users were affected?)
-what was the root cause
-Timeline (format bullet point, format: time - keep it short, 1 or 2 sentences) must contain:
 
-when was the issue detected
-how was the issue detected (monitoring alert, an engineer noticed something, a customer complained…)
-actions taken (what parts of the system were investigated, what were the assumption on the root cause of the issue)
-misleading investigation/debugging paths that were taken
-which team/individuals was the incident escalated to
-how the incident was resolved
-Root cause and resolution must contain:
+# Postmortem Report: Apache 500 Error Incident
 
-explain in detail what was causing the issue
-explain in detail how the issue was fixed
-Corrective and preventative measures must contain:
 
-what are the things that can be improved/fixed (broadly speaking)
-a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)
-Be brief and straight to the point, between 400 to 600 words
+# Issue Summary:
+
+from the time Fri, 24 Mar 2017  07:33 to 7:35 GMT An unexpected 500 Internal Server Error occurred on our Apache web server, it affected 100% of users who tried to reach the server. the root cause was the presence of a configuration file with incorrect file extension (.phpp) instead (.php).
+
+# Timeline :
+
+07:32: we noticed that curl requests to the server return 500 type error
+
+07:32 - 07:35:  we used to tmux to run curl and strace  simultaneously to diagnose the issue concurrently.
+
+7:33:  we used strace to find the problem and watched the whole process behind the request and searched for the incorrect file extension using grep
+
+7:34:  we used the puppet method to apply changes into files in an automated way and fix the problem
+
+7:35: we restarted the server and tried a new curl and requests returned 200 ok
+
+# Root cause :
+
+the root cause of the outage was an unrecognized file extension (.phpp) in place of the standard.php extension.<br> This led to Apache failing to load the intended configuration properly, resulting in the 500 error.
+# Corrective and preventative measures :
+we traced the process from the beginning and found the path of the incorrect extension file.<br> We used  puppet to automatedly change the extension to "php" instead of "phpp" and fix the problem
+
+# Preventive Measures:
+<b>Mointering </b>: using strace to monitor what behind a process and find the broken point
+
+<b>Configuration Management</b>: using automated methods like puppet and checking the server status every time after editing to reduce the human errors
+
+<b>Testing</b>: test connection before deploying
